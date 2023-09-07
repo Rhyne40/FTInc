@@ -2,9 +2,9 @@
 	session_start();
 	// include('conn.php');
  
-	if (isset($_SESSION['eMail'])){
-		header('location:Dashboard.php');
-	}
+	// if (isset($_SESSION['eMail'])){
+	// 	header('location:Index.php');
+	// }
 ?>
 <html lang="en">
 <head>
@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
     <!-- <link rel="stylesheet" href="Style/Navigation.css"> -->
-    <link rel="stylesheet" href="./Style/LogIn.css">
-    <link rel="stylesheet" href="./Style/Container.css">
+    <link rel="stylesheet" href="./Plugins/Style/LogIn.css">
+    <link rel="stylesheet" href="./Plugins/Style/Container.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
@@ -75,10 +75,10 @@
                 //get values from the form
                 let formdata = new FormData(this);
                 formdata.append("action", "submit");
-
+               
                 $.ajax({
                     type: 'POST',
-                    url: 'http://localhost/CRUDOperation/functions/LogInProcess.php',
+                    url: 'http://localhost/FTInc/Plugins/PHPfunctions/LogInProcess.php',
                     data: formdata,
                     cache: false,
                     processData: false,
@@ -88,7 +88,7 @@
                         if(response == 'success'){
                             $.notify("Welcome", "Success LogIn");
                             setTimeout(()=>{
-                                window.location.href = "http://localhost/CRUDOperation/Dashboard.php";
+                                window.location.href = "http://localhost/FTInc/Index.php";
                             },2000);
                         }
                         else{
